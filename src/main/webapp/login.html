@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('indeximage.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+        /* Blurring background image */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            filter: blur(8px);
+            z-index: -1;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #555;
+        }
+
+        /* Layout for Welcome Guest and Go Back */
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            position: absolute;
+            top: 0;
+            width: 98%;
+            background-color: rgba(0, 0, 0, 0.6); /* Transparent background */
+            z-index: 1;
+        }
+
+        .welcome-guest {
+            font-size: 18px;
+            color: yellow;
+            font-weight: bold;
+        }
+
+        .go-back {
+            font-size: 18px;
+            color: blue;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* Big Header */
+        .big-header {
+            text-align: center;
+            color: yellow;
+            font-size: 48px;
+            font-weight: bold;
+            padding: 80px 0 30px; /* Padding to adjust for top header */
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Layout for Signup Image and Login Form */
+        .main-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 30px;
+        }
+
+        .signup {
+            width: 48%;
+        }
+
+        .signup img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+
+        .login-form-container {
+            width: 48%;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .login-form-container h2 {
+            font-size: 24px;
+            color: yellow;
+            margin-bottom: 20px;
+        }
+
+        .login-form input[type="text"], .login-form input[type="password"] {
+            width: 100%;
+            padding: 8px 1px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .login-form .forgot-password {
+            display: block;
+            color: #ffcc00;
+            margin: 10px 0;
+            text-decoration: none;
+        }
+
+        .login-form .login-button {
+            background-color: orange;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .login-form .login-button:hover {
+            background-color: #ff9900;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background-color: maroon;
+            padding: 10px;
+        }
+
+        .tabs button {
+            background-color: maroon;
+            color: white;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            margin: 0 5px;
+        }
+
+        .tabs button:hover, .tabs button.active {
+            background-color: #b30000;
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <!-- Top Header with Welcome Guest and Go Back -->
+    <div class="top-header">
+        <div class="welcome-guest">Welcome: Guest</div>
+        <a href="javascript:history.back()" class="go-back">GO BACK</a>
+    </div>
+
+    <!-- Big Header -->
+    <div class="big-header">
+        Welcome to Success Point Institute Login!!
+    </div>
+
+    <!-- Navbar -->
+    <div class="navbar">
+       
+        <a href="#home">HOME</a>
+        <a href="pages/aboutus.html">ABOUT US</a>
+        <a href="pages/fdbck.jsp">FEEDBACK</a>
+        <a href="pages/help.jsp">HELP</a>
+        <a href="pages/sitemap.jsp">SITE MAP</a>
+        <a href="pages/stng.jsp">SETTINGS</a>
+    </div>
+
+    <!-- Tabs for User Selection -->
+    <div class="tabs">
+        <button class="tablinks active" onclick="openForm('Student')">STUDENT</button>
+        <button class="tablinks" onclick="openForm('Teacher')">TEACHER</button>
+        <button class="tablinks" onclick="openForm('Admin')">ADMIN</button>
+    </div>
+
+ <div class="main-container">
+
+        <!-- Signup Button (Image) -->
+        <div class="signup">
+            <a id="signupLink" href="#"><img src="images/signup-button.png" alt="Sign Up"></a>
+        </div>
+
+        <!-- Login Form -->
+        <div class="login-form-container">
+            <div id="Student" class="login-form" data-user-type="student" style="display: none;">
+                <h2>STUDENT LOGIN</h2>
+                <input type="text" placeholder="Username" name="username">
+                <input type="password" placeholder="Password" name="password">
+                <a href="#" class="forgot-password" onclick="redirectToForgotPassword()">FORGOT PASSWORD?</a>
+                <button class="login-button" onclick="redirectToLogin()">LOGIN</button>
+            </div>
+
+            <div id="Teacher" class="login-form" data-user-type="teacher" style="display: none;">
+                <h2>TEACHER LOGIN</h2>
+                <input type="text" placeholder="Username" name="username">
+                <input type="password" placeholder="Password" name="password">
+                <a href="#" class="forgot-password" onclick="redirectToForgotPassword()">FORGOT PASSWORD?</a>
+                <button class="login-button" onclick="redirectToLogin()">LOGIN</button>
+            </div>
+
+            <div id="Admin" class="login-form" data-user-type="admin" style="display: none;">
+                <h2>ADMIN LOGIN</h2>
+                <input type="text" placeholder="Username" name="username">
+                <input type="password" placeholder="Password" name="password">
+                <a href="#" class="forgot-password" onclick="redirectToForgotPassword()">FORGOT PASSWORD?</a>
+                <button class="login-button" onclick="redirectToLogin()">LOGIN</button>
+            </div>
+        </div>
+   </div>
+
+    <script>
+        function openForm(userType) {
+            var i, formContent, tabLinks;
+            formContent = document.getElementsByClassName("login-form");
+            for (i = 0; i < formContent.length; i++) {
+                formContent[i].style.display = "none";
+            }
+            tabLinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tabLinks.length; i++) {
+                tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+            }
+            document.getElementById(userType).style.display = "block";
+            event.currentTarget.className += " active";
+
+            // Update the signup link based on the selected user type
+            var signupLink = document.getElementById("signupLink");
+            if (userType === 'Student') {
+                signupLink.href = "pages/student/Stu_adm.jsp"; // Link to student signup page
+            } else if (userType === 'Teacher') {
+                signupLink.href = "pages/teacher/tReg.jsp"; // Link to teacher signup page
+            } else if (userType === 'Admin') {
+                signupLink.href = "pages/admin/admin_reg.jsp"; // Link to admin signup page
+            }
+        }
+        function redirectToLogin() {
+            const activeForm = document.querySelector('.login-form[style*="display: block"]');
+            const userType = activeForm.getAttribute('data-user-type');
+
+            if (userType === 'student') {
+                window.location.href = "/Project/pages/student/s_log.jsp";
+            } else if (userType === 'teacher') {
+                window.location.href = "/Project/pages/teacher/t_log.jsp";
+            } else if (userType === 'admin') {
+                window.location.href = "/Project/pages/admin/a_log.jsp";
+            }
+        }
+
+        function redirectToForgotPassword() {
+            const activeForm = document.querySelector('.login-form[style*="display: block"]');
+            const userType = activeForm.getAttribute('data-user-type');
+
+            if (userType === 'student') {
+                window.location.href = "s_forgot.jsp";
+            } else if (userType === 'teacher') {
+                window.location.href = "t_forgot.jsp";
+            } else if (userType === 'admin') {
+                window.location.href = "a_forgot.jsp";
+            }
+        }
+
+        // Show the default tab (Student) on page load
+        document.getElementById("Student").style.display = "block";
+    </script>
+</body>
+</html>

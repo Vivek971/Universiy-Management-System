@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         id="WebApp_ID" version="6.0">
+    
+    <!-- Servlet Definition for MyServlet -->
+    <servlet>
+        <servlet-name>myservlet</servlet-name>
+        <servlet-class>in.sp.backend.MyServlet</servlet-class>    
+    </servlet>
+    
+    <!-- Mapping for MyServlet -->
+    <servlet-mapping>
+        <servlet-name>myservlet</servlet-name>
+        <url-pattern>/aaa</url-pattern>
+    </servlet-mapping>
+
+    <!-- Servlet Definition for AdminRegistrationServlet -->
+    <servlet>
+        <servlet-name>adminregistrationservlet</servlet-name>
+        <servlet-class>in.sp.backend.AdminRegistrationServlet</servlet-class>    
+    </servlet>
+    
+    <!-- Mapping for AdminRegistrationServlet -->
+    <servlet-mapping>
+        <servlet-name>adminregistrationservlet</servlet-name>
+        <url-pattern>/adminReg</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Servlet Definition for StudentRegistrationServlet -->
+    <servlet>
+        <servlet-name>studentregservlet</servlet-name>
+        <servlet-class>in.sp.backend.StudentRegServlet</servlet-class>    
+    </servlet>
+    
+    <!-- Mapping for StudentRegistrationServlet -->
+    <servlet-mapping>
+        <servlet-name>studentregservlet</servlet-name>
+        <url-pattern>/studentReg</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Servlet Definition for StudentloginServlet -->
+    <servlet>
+        <servlet-name>stuloginservlet</servlet-name>
+        <servlet-class>in.sp.backend.StuLoginServlet</servlet-class>    
+    </servlet>
+    
+    <!-- Mapping for StudentLoginServlet -->
+    <servlet-mapping>
+        <servlet-name>stuloginservlet</servlet-name>
+        <url-pattern>/studentLogin</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Servlet Definition for TeachRegServlet -->
+    <servlet>
+        <servlet-name>teachregservlet</servlet-name>
+        <servlet-class>in.sp.backend.TeachRegServlet</servlet-class>    
+    </servlet>
+    
+    <!-- Mapping for teachregservlet -->
+    <servlet-mapping>
+        <servlet-name>teachregservlet</servlet-name>
+        <url-pattern>/teacherReg</url-pattern>
+    </servlet-mapping>
+
+</web-app>

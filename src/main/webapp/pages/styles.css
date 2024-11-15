@@ -1,0 +1,99 @@
+/* styles.css */
+
+/* Background and body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../images/indeximage.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+}
+
+/* Blurring background image */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    filter: blur(8px);
+    z-index: -1;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #0000cc;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.navbar a {
+    float: left;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.navbar a:hover {
+    background-color: #5555ff;
+}
+
+/* Content Styles (For Specific Pages) */
+.content {
+    padding: 60px 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+}
+
+h1 {
+    font-size: 36px;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+h2 {
+    color: red;
+    font-size: 30px;
+}
+
+h3 {
+    color: #3366ff;
+    font-size: 24px;
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    margin: 10px;
+    color: #000;
+    background-color: #ffcc00;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #ff9900;
+}
+
+.or-circle {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    color: white;
+    font-size: 18px;
+    border-radius: 50%;
+    line-height: 50px;
+    margin: 20px;
+}
+
+.section-title {
+    font-size: 24px;
+    color: #ffcc00;
+    margin-top: 40px;
+}
